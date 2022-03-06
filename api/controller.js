@@ -27,12 +27,10 @@ exports.get = (req, res, next) => {
 
 exports.post = (req, res, next) => {
     const newTeam = req.body;
-    console.log(newTeam);
     Team.create(newTeam)
         .then((team) => {
             res.json(team);
         }, (err) => {
-            console.log(err);
             next(err);
         });
 };
